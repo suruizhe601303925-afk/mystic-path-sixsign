@@ -3,10 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "electron/main.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "vite --config vite.config.web.js",
+    "build": "vite build --config vite.config.web.js",
+    "preview": "vite preview --config vite.config.web.js",
+    "dev:electron": "concurrently \"vite --config vite.config.web.js\" \"cross-env NODE_ENV=development electron .\"",
+    "build:electron": "vite build --config vite.config.web.js && electron-builder",
+    "electron": "electron ."
   },
   "dependencies": {
     "react": "^19.2.0",
@@ -20,6 +24,31 @@
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
     "typescript": "~5.8.2",
-    "vite": "^6.2.0"
+    "vite": "^6.2.0",
+    "electron": "^33.4.0",
+    "electron-builder": "^25.1.8",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3"
+  },
+  "build": {
+    "appId": "com.amailing.app",
+    "productName": "AMailing",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
   }
 }
