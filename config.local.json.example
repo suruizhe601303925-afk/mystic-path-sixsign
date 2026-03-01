@@ -1,0 +1,10 @@
+{
+  "imapHost": "imap.qq.com",
+  "imapPort": 993,
+  "imapUser": "your_qq_email@qq.com",
+  "imapPass": "your_imap_auth_token",
+  "smtpHost": "smtp.qq.com",
+  "smtpPort": 465,
+  "smtpUser": "your_qq_email@qq.com",
+  "smtpPass": "your_smtp_auth_token"
+}

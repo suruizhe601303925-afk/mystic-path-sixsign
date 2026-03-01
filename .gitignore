@@ -12,6 +12,12 @@ dist
 dist-ssr
 *.local
 
+# Electron build output
+dist-electron/
+
+# Local backend config (may contain credentials)
+config.local.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
